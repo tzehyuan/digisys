@@ -25,10 +25,12 @@ set-option () {
 }
 
 /bin/echo "*** Making personalised settings for Geany"
-mkdir -p $HOME/.config/geany/filedefs
-geanyexts=$HOME/.config/geany/filetype_extensions.conf 
+geanyexts=$HOME/.config/geany/filetype_extensions.conf
+geanydefs=$HOME/.config/geany/filedefs
+mkdir -p $geanydefs
 set-option $geanyexts Extensions GnuAS ''
 set-option $geanyexts Extensions GnuARM '*.s;*.S;'
+set-option $geanydefs/filetypes.common styling line_height '0;2;'
 /bin/cp filetypes.GnuARM.conf $HOME/.config/geany/filedefs
 /bin/echo
 
