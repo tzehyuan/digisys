@@ -20,6 +20,6 @@ int main(int argc, char **argv)
     int b = getnum(argv[2]);
     int c = func(a, b);
     printf("func(%d, %d) = %u\n", a, b, c);
-    printf("func(%x, %x) = %x\n", a, b, c);
+    printf("func(%#x, %#x) = %#x\n", a, b, c);
     return 0;
 }
