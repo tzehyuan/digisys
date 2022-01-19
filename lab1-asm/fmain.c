@@ -159,7 +159,7 @@ void clock_init(void)
 #define clock_start()  TIMER0.CLEAR = 1
 #define clock_stop()   (TIMER0.CAPTURE[0] = 1, TIMER0.CC[0])
         
-#define FUDGE 9                 /* ticks of overhead for function call */
+#define FUDGE 10                /* ticks of overhead for function call */
 #define MULT 1                  /* clock cycles per tick */
 #define FREQ 16                 /* clock frequency */
 #endif

@@ -72,13 +72,13 @@ clean:
 
 QEMU-CPU = -march=armv6
 
-q-%.elf: %-q.o test-q.o
+q-%.elf: %-q.o qmain.o
 	$(QEMU-GCC) $(QEMU-CPU) $^ -static -o $@
 
 %-q.o: %.s
 	$(QEMU-AS) $(QEMU-CPU) -mthumb $< -o $@
 
-test-q.o: test.c
+qmain.o: qmain.c
 	$(QEMU-GCC) $(QEMU-CPU) -c $< -o $@
 
 QEMU-GCC = arm-linux-gnueabihf-gcc -marm
