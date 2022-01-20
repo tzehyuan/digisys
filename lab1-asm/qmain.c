@@ -8,7 +8,9 @@ unsigned func(int, int);
 
 int getnum(char *s)
 {
-    if (s[0] == '-')
+    if (s == NULL)
+        return 0;
+    else if (s[0] == '-')
         return strtol(s, NULL, 0);
     else
         return strtoul(s, NULL, 0);
