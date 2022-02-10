@@ -16,7 +16,10 @@ esac
 # Don't exit on interrupt
 trap '' 2
 
-GDB=`which arm-none-eabi-gdb` || GDB=`which gdb-multiarch` \
+# Try to find a likely-looking instance of GDB
+GDB=`which arm-none-eabi-gdb` \
+    || GDB=`which gdb-multiarch` \
+    || GDB=`which gdb-arm` \
     || { echo "debug: can't find gdb" >/dev/stderr; exit 1; }
 
 # Start up the debug server: use "set -m" to protect from interrupts
